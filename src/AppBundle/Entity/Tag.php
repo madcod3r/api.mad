@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="tag")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TagRepository")
- * @ORM\Table(indexes={@ORM\Index(name="tag_name_idx", columns={"name"})})
  */
 class Tag
 {
