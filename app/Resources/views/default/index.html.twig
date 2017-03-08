@@ -4,10 +4,29 @@
 
 {% block body %}
     <div class="container">
-        <div class="main_container">
-
-            <!-- page content -->
-            <!-- /page content -->
-        </div>
+        <h1>Image table</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Tags</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>/img/qqwe.jpg</td>
+                <td>new, simple</td>
+                <td>
+                    <a href="#" class="btn btn-default">Edit</a>
+                    <a href="#" class="btn btn-danger">Remove</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="#" class="btn btn-primary">Add New</a>
+        <a href="#" class="btn btn-danger">Remove All</a>
     </div>
 {% endblock %}
