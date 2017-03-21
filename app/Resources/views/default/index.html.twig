@@ -15,18 +15,77 @@
             </tr>
             </thead>
             <tbody>
+            {% for image in images %}
             <tr>
-                <td>1</td>
-                <td>/img/qqwe.jpg</td>
-                <td>new, simple</td>
+                <td>{{ image.id }}</td>
+                <td>
+                    <img width="50" height="50" src="{{ image.path }}">
+                </td>
+                <td>
+                    {% for tag in image.tags %}
+                        <span class="label label-primary">{{ tag.name }}</span>
+                    {% endfor %}
+                </td>
                 <td>
                     <a href="#" class="btn btn-default">Edit</a>
                     <a href="#" class="btn btn-danger">Remove</a>
                 </td>
             </tr>
+            {% endfor %}
             </tbody>
+            <tfoot>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="file" class="form-control" name="file">
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="tags">
+                </td>
+                <td>
+                    <a href="#" class="btn btn-primary">Add</a>
+                </td>
+            </tr>
+            </tfoot>
         </table>
-        <a href="#" class="btn btn-primary">Add New</a>
-        <a href="#" class="btn btn-danger">Remove All</a>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="per_page">Per page:</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" id="per_page">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 {% endblock %}

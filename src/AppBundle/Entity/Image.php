@@ -3,12 +3,19 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\VirtualProperty;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+
 
 /**
  * Image
  *
  * @ORM\Table(name="image")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageRepository")
+ * @ExclusionPolicy("all")
  */
 class Image
 {
@@ -18,17 +25,20 @@ class Image
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Expose
      */
     private $path;
 
     /**
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="images")
      * @ORM\JoinTable(name="image_tag")
+     * @Expose
      */
     private $tags;
 
